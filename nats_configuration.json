@@ -1,0 +1,35 @@
+{
+  "natsUrl": "nats://localhost:4222",
+  "streams": [
+    {
+      "description": "Stream for trade execution which will be served by the booking microservice",
+      "contactDetails": "srujanks27@gmail.com",
+      "name": "TRADE_REQUESTS",
+      "subjects": [
+        "trades.submit"
+      ],
+      "storageType": "File",
+      "retentionPolicy": "Limits",
+      "discardPolicy": "Old",
+      "maxBytes": 10000000,
+      "maxMessages": 100000,
+      "maxAgeHours": 24,
+      "replicas": 1
+    },
+    {
+      "description": "Stream for operation post trade execution",
+      "contactDetails": "srujanks27@gmail.com",
+      "name": "TRADE_OUTCOMES",
+      "subjects": [
+        "trades.outcome"
+      ],
+      "storageType": "File",
+      "retentionPolicy": "Limits",
+      "discardPolicy": "Old",
+      "maxBytes": 5000000,
+      "maxMessages": 50000,
+      "maxAgeHours": 12,
+      "replicas": 1
+    }
+  ]
+}
